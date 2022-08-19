@@ -1,24 +1,36 @@
-# README
+# Project
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a clone of LeBonCoin.  First of all I planned to list all tasks I will do to make a MVP for this project and I will guess how long each task is going to take me.
 
-Things you may want to cover:
+Now I created a css design for each application pages and I thought about the schema of database 
 
-* Ruby version
+[Clone le boncoin](https://grandiose-cormorant-7de.notion.site/Clone-le-boncoin-20d90e1d59ad4d678f53736765474998)
 
-* System dependencies
+# Features
 
-* Configuration
+MVP
 
-* Database creation
+- Users authentication
+- search + Ad + add
+- 
 
-* Database initialization
+To make the app better
 
-* How to run the test suite
+- Multiple categories for ad
+- Message between users + notification (mobile / email )
+- Add favorites
+- Search filter
+- Stripe online payments
+- TDD
 
-* Services (job queues, cache servers, search engines, etc.)
+# Gem
 
-* Deployment instructions
+- Ruby ⇒ "3.0.2"
+- Rails ⇒ >= 7.0.3.1"
+- Tailwind ⇒
+- carrierwave ⇒
+- city-state ⇒
 
-* ...
+# Why this clone
+
+This is a technical test Ruby on Rails
