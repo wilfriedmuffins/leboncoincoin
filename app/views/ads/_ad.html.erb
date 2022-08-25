@@ -1,7 +1,7 @@
 
 
 
-  <div>
+  <div id= " <%= dom_id ad %>">
     <p class="my-5">
       <strong class="block font-medium mb-1">Title:</strong>
       <%= ad.title %>
@@ -19,8 +19,8 @@
 
     <p class="my-5">
       <strong class="block font-medium mb-1">Images:</strong>
-      <% @ad.images.each do |image| %>
-        <%= image_tag image.url%>
+      <% ad.images.each do |image| %>
+        <%= image_tag(image) %>
       <% end %>
     </p>
 

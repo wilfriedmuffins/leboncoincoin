@@ -262,6 +262,7 @@ DEPENDENCIES
   debug
   devise
   image_magick
+  image_processing (~> 1.2)
   importmap-rails
   jbuilder
   letter_opener

@@ -1,6 +1,10 @@
 class Ad < ApplicationRecord
-    mount_uploaders :images, ImageUploader
-    serialize :images
+    # mount_uploaders :images, ImageUploader
+    # serialize :images
+
+    has_many_attached :images
+    
+    #belongs_to :user
 
     validates :title, presence: true
     validates :category, presence: true
@@ -10,4 +14,5 @@ class Ad < ApplicationRecord
     validates :price, presence: true
     validates :shipment, presence: true
     validates :city, presence: true
+    
 end
