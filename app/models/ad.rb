@@ -1,7 +1,5 @@
 class Ad < ApplicationRecord
-    # mount_uploaders :images, ImageUploader
-    # serialize :images
-
+   
     has_many_attached :images
     
     #belongs_to :user
