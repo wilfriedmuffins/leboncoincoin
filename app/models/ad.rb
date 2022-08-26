@@ -2,7 +2,7 @@ class Ad < ApplicationRecord
    
     has_many_attached :images
     
-    #belongs_to :user
+    belongs_to :user
 
     validates :title, presence: true
     validates :category, presence: true
