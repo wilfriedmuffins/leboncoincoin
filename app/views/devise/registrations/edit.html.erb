@@ -24,16 +24,12 @@
   <% end %>
 
   <div class="field">
-    <%= image_tag(resource.avatar_size) if resource.avatar.attached? %>
-  </div>
-
-  <div class="field">
     <%= f.label :avatar %><br />
     <%= f.file_field :avatar, autocomplete: "Image" %>
   </div>
 
   <div class="field">
-    <% if resource.avatar.attached? %>
+    <% if @user.avatar.attached? %>
       <%= image_tag(@user.avatar) %> 
     <% else %>
       <%= image_tag("default_avatar.jpg") %>
