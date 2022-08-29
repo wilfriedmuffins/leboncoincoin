@@ -3,7 +3,15 @@ class AdsController < ApplicationController
 
   # GET /ads or /ads.json
   def index
-    @ads = Ad.all
+    @query = Ad.ransack(params[:q])
+    @ads = @query.result(distinct: true)
+
+    if turbo_frame_request?
+      render partial: "ads", locals: { bands: @ads }
+    else
+      render :index
+    end
+  
   end
 
   # GET /ads/1 or /ads/1.json
@@ -22,6 +30,7 @@ class AdsController < ApplicationController
   # POST /ads or /ads.json
   def create
     @ad = Ad.new(ad_params)
+    @ad.user = current_user
 
     respond_to do |format|
       if @ad.save

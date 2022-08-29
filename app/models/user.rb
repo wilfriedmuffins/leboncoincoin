@@ -3,4 +3,14 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
+
+  has_one_attached :avatar
+
+  has_many :ads, dependent: :destroy
+
+  def avatar_size
+    avatar.variant(resiez: "150x150!").processed
+  end
+  
+
 end
