@@ -6,8 +6,6 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
 
-
-
   has_many :ads, dependent: :destroy
 
   has_many :sale, dependent: :destroy

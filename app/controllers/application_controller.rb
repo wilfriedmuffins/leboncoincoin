@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
     def set_query
         @query = Ad.ransack(params[:q])
-        @ads = @query.result(distinct: true)
+        @ads = @query.result(distinct: true).where("sold = ?", false)
     end
 
     protected

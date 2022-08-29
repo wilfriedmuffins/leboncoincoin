@@ -4,8 +4,6 @@ class Ad < ApplicationRecord
     
     belongs_to :user
 
-    belongs_to :sale
-
     validates :title, presence: true
     validates :category, presence: true
     validates :state, presence: true
@@ -14,5 +12,5 @@ class Ad < ApplicationRecord
     validates :price, presence: true
     validates :shipment, presence: true
     validates :city, presence: true
-    
+
 end

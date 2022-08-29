@@ -17,7 +17,7 @@
   <p class="my-5">
     <strong class="block font-medium mb-1">Images:</strong>
     <% ad.images.each do |image| %>
-      <%= image_tag(image) %>
+      <%= image_tag(image, class:"max-w-xs h-auto") %>
     <% end %> 
 
   </p>
