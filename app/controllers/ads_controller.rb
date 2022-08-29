@@ -4,10 +4,10 @@ class AdsController < ApplicationController
   # GET /ads or /ads.json
   def index
     @query = Ad.ransack(params[:q])
-    @ads = @query.result(distinct: true)
+    @ads = @query.result(distinct: true).where("sold = ?", false)
 
     if turbo_frame_request?
-      render partial: "ads", locals: { bands: @ads }
+      render partial: "ads", locals: { ads: @ads }
     else
       render :index
     end

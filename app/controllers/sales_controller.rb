@@ -23,10 +23,8 @@ class SalesController < ApplicationController
   def create
     @sale = Sale.new(sale_params)
     @sale.user = current_user
-
     @email = params[:email]
-    #puts @ad.inspect
-
+    
     respond_to do |format|
       if @sale.save
         AdMailer.sold(@email).deliver_now
