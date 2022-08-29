@@ -16,6 +16,9 @@ class AdsController < ApplicationController
 
   # GET /ads/1 or /ads/1.json
   def show
+    @sale = Sale.new
+    @sale.user = current_user
+    @sale.ad = @ad
   end
 
   # GET /ads/new
@@ -30,7 +33,9 @@ class AdsController < ApplicationController
   # POST /ads or /ads.json
   def create
     @ad = Ad.new(ad_params)
-    @ad.user = current_user
+    @sale = Sale.new
+    @sale.user = current_user
+    @sale.ad = @ad
 
     respond_to do |format|
       if @ad.save
