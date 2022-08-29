@@ -12,3 +12,4 @@ class AdMailer < ApplicationMailer
 
   end
 end
+
