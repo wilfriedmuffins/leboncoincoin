@@ -22,10 +22,14 @@ class SalesController < ApplicationController
   # POST /sales or /sales.json
   def create
     @sale = Sale.new(sale_params)
-    # @sale.user = current_user
-    # @sale.ad = 91
+    @sale.user = current_user
+
+    @email = params[:email]
+    #puts @ad.inspect
+
     respond_to do |format|
       if @sale.save
+        AdMailer.sold(@email).deliver_now
         format.html { redirect_to sale_url(@sale), notice: "Sale was successfully created." }
         format.json { render :show, status: :created, location: @sale }
       else
