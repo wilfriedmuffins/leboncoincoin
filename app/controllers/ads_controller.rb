@@ -37,8 +37,10 @@ class AdsController < ApplicationController
     @sale.user = current_user
     @sale.ad = @ad
 
+
     respond_to do |format|
       if @ad.save
+        AdMailer.sold(@ad.user.email).deliver_now
         format.html { redirect_to ad_url(@ad), notice: "Ad was successfully created." }
         format.json { render :show, status: :created, location: @ad }
       else
