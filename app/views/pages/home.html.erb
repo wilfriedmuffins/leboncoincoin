@@ -1,6 +1,6 @@
-<h1>Page#home</h1>
+<%= render 'ads/search_form' %>
 
-<h1 class="sm:text-green-600 md:uppercase">
-    Hello world!
-</h1>
+<%= turbo_frame_tag "ads" do %>
+    <%= render 'ads/index' %> 
+<% end %>
 
