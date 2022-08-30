@@ -82,3 +82,5 @@ gem "ransack", "~> 3.2"
 
 gem "faker", "~> 2.22"
 gem 'aws-sdk-s3', require: false
+
+gem 'factory_bot_rails', '~> 6.2'
