@@ -36,6 +36,7 @@ class AdsController < ApplicationController
   # POST /ads or /ads.json
   def create
     @ad = Ad.new(ad_params)
+    @ad.user = current_user
     @sale = Sale.new
     @sale.user = current_user
     @sale.ad = @ad
