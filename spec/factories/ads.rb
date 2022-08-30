@@ -6,7 +6,10 @@ FactoryBot.define do
     price { Faker::Number.number(digits: 3) }
     city {"Paris"}
     category {"Fone"}
+    state {"New"} 
     shipment {"Delivery"}
+    sold { false }
+
 
     after(:build) do |post|
       post.images.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'mini_cooper.jpg')), filename: 'mini_cooper.jpg')

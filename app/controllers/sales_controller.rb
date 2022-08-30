@@ -1,5 +1,7 @@
 class SalesController < ApplicationController
   before_action :set_sale, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, only: %i[ create ]
+  before_action :authenticate_admin, only: %i[ index, edit, destroy ]
 
   # GET /sales or /sales.json
   def index
@@ -22,10 +24,12 @@ class SalesController < ApplicationController
   # POST /sales or /sales.json
   def create
     @sale = Sale.new(sale_params)
-    # @sale.user = current_user
-    # @sale.ad = 91
+    @sale.user = current_user
+    @email = params[:email]
+    
     respond_to do |format|
       if @sale.save
+        AdMailer.sold(@email).deliver_now
         format.html { redirect_to sale_url(@sale), notice: "Sale was successfully created." }
         format.json { render :show, status: :created, location: @sale }
       else
@@ -67,5 +71,9 @@ class SalesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def sale_params
       params.require(:sale).permit(:ad_id, :user_id)
+    end
+
+    def authenticate_admin
+      redirect_to root_path, notice: "Access retricted." unless current_user.admin 
     end
 end

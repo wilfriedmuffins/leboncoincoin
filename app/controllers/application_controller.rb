@@ -6,10 +6,11 @@ class ApplicationController < ActionController::Base
 
     def set_query
         @query = Ad.ransack(params[:q])
-        @ads = @query.result(distinct: true)
+        @ads = @query.result(distinct: true).where("sold = ?", false)
     end
 
     protected
+
     
     # If you have extra params to permit, append them to the sanitizer.
     def configure_sign_up_params

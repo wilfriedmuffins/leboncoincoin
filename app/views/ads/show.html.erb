@@ -1,15 +1,18 @@
 <div class="mx-auto md:w-2/3 w-full flex">
   <div class="mx-auto">
     
-     <%= render @ad %> 
+    <%= render @ad %> 
 
-    <%= link_to 'Edit this ad', edit_ad_path(@ad), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <div class="inline-block ml-2">
-      <%= button_to 'Destroy this ad', ad_path(@ad), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
-    </div>
+    <% if current_user == @ad.user %>
+      <%= link_to 'Edit this ad', edit_ad_path(@ad), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+      <div class="inline-block ml-2">
+        <%= button_to 'Destroy this ad', ad_path(@ad), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+      </div>  
+    <% end %>
+    
 
-  <div class="inline-block ml-2">
-       <%= render "sales/form", sale: @sale %>
+  <div class="inline-block m-2">
+    <%= render "sales/form", sale: @sale, email: @ad.user.email %>
   </div>
 
     <%= link_to 'Back to ads', ads_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>

@@ -1,13 +1,16 @@
 class AdsController < ApplicationController
   before_action :set_ad, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, only: %i[ create ]
+  before_action :authenticate_admin, only: %i[ index, edit, update, destroy ]
+  before_action :owner, only: %i[ edit destroy ]
 
   # GET /ads or /ads.json
   def index
     @query = Ad.ransack(params[:q])
-    @ads = @query.result(distinct: true)
+    @ads = @query.result(distinct: true).where("sold = ?", false)
 
     if turbo_frame_request?
-      render partial: "ads", locals: { bands: @ads }
+      render partial: "ads", locals: { ads: @ads }
     else
       render :index
     end
@@ -33,6 +36,7 @@ class AdsController < ApplicationController
   # POST /ads or /ads.json
   def create
     @ad = Ad.new(ad_params)
+    @ad.user = current_user
     @sale = Sale.new
     @sale.user = current_user
     @sale.ad = @ad
@@ -40,7 +44,6 @@ class AdsController < ApplicationController
 
     respond_to do |format|
       if @ad.save
-        AdMailer.sold(@ad.user.email).deliver_now
         format.html { redirect_to ad_url(@ad), notice: "Ad was successfully created." }
         format.json { render :show, status: :created, location: @ad }
       else
@@ -52,6 +55,7 @@ class AdsController < ApplicationController
 
   # PATCH/PUT /ads/1 or /ads/1.json
   def update
+
     respond_to do |format|
       if @ad.update(ad_params)
         format.html { redirect_to ad_url(@ad), notice: "Ad was successfully updated." }
@@ -65,6 +69,7 @@ class AdsController < ApplicationController
 
   # DELETE /ads/1 or /ads/1.json
   def destroy
+
     @ad.destroy
 
     respond_to do |format|
@@ -82,5 +87,13 @@ class AdsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def ad_params
       params.require(:ad).permit(:title, :category, :state, :description, :price, :city, :shipment, images: [])
+    end
+
+    def authenticate_admin
+      redirect_to root_path, notice: "Access retricted." if current_user.admin #|| current_user.id == @ad.user_id
+    end
+
+    def owner
+      redirect_to root_path, notice: "Access retricted." if current_user.id != @ad.user_id
     end
 end

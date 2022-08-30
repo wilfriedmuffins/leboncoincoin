@@ -8,6 +8,8 @@ class User < ApplicationRecord
 
   has_many :ads, dependent: :destroy
 
+  has_many :sale, dependent: :destroy
+
   def avatar_size
     avatar.variant(resiez: "150x150!").processed
   end

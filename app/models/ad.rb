@@ -12,5 +12,5 @@ class Ad < ApplicationRecord
     validates :price, presence: true
     validates :shipment, presence: true
     validates :city, presence: true
-    
+
 end

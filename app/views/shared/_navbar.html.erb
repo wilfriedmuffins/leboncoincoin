@@ -17,7 +17,11 @@
             <div class="flex items-center md:order-2">
                     <button type="button" class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
                         <span class="sr-only">Open user menu</span>
-                        <img class="w-8 h-8 rounded-full" src="https://www.librerentier.com/wp-content/plugins/schema-and-structured-data-for-wp//admin_section/images/default_user.jpg" alt="">
+                        <% if current_user.avatar.attached? %>
+                            <%= image_tag(current_user.avatar, class:"w-8 h-8 rounded-full")%>
+                        <% else %>
+                            <img class="w-8 h-8 rounded-full" src="https://www.librerentier.com/wp-content/plugins/schema-and-structured-data-for-wp//admin_section/images/default_user.jpg" alt="">
+                        <% end %>
                     </button>
                     <!-- Dropdown menu -->
                     <div class="z-50 my-4 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600 block hidden" id="user-dropdown" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(661px, 82px, 0px);" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom">
@@ -29,12 +33,14 @@
                             <li>
                                 <%= link_to "Profil", edit_user_registration_path, class:"block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"  %>
                             </li>
-                            <li>
-                                <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>
-                            </li>
-                            <li>
-                                <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Earnings</a>
-                            </li>
+                            <% if current_user.admin %>
+                                <li>
+                                    <%= link_to "Ads", ads_path, class:"block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"  %>
+                                </li>
+                                <li>
+                                    <%= link_to "Sales", sales_path, class:"block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"  %>
+                                </li>
+                            <% end %>
                             <li>
                                 <%= button_to "Sign_out", destroy_user_session_path, method: :delete, class:"block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"  %>
                             </li>
@@ -46,14 +52,17 @@
                     </button>
                 </div>
         <% else %>
-            <div class="flex items-center">
-                <%= link_to "s'inscrire", new_user_registration_path, class:"self-center text-xl font-semibold whitespace-nowrap dark:text-white"  %> 
-                <%= link_to "se connecter", new_user_session_path, class:"self-center text-xl font-semibold whitespace-nowrap dark:text-white"  %> 
+            <div class="flex flex-row items-center">
+                <div class="mx-2">
+                    <%= link_to "S'inscrire", new_user_registration_path, class:"self-center text-xl font-semibold whitespace-nowrap dark:text-white" %> 
+                </div>
+                <div class="mx-2">
+                    <%= link_to "Se connecter", new_user_session_path, class:"self-center text-xl font-semibold whitespace-nowrap dark:text-white" %> 
+                </div>
             </div>
         <% end %>
     </div>
 </nav>
-
 
 
 

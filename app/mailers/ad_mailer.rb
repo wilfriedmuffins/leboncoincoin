@@ -5,10 +5,11 @@ class AdMailer < ApplicationMailer
   #
   #   en.ad_mailer.sold.subject
   #
-  def sold(emain)
+  def sold(email)
     @greeting = "Hi, You have just made a sale"
 
     mail to: email
 
   end
 end
+
