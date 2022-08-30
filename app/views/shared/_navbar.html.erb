@@ -33,6 +33,14 @@
                             <li>
                                 <%= link_to "Profil", edit_user_registration_path, class:"block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"  %>
                             </li>
+                            <% if current_user.admin %>
+                                <li>
+                                    <%= link_to "Ads", ads_path, class:"block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"  %>
+                                </li>
+                                <li>
+                                    <%= link_to "Sales", sales_path, class:"block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"  %>
+                                </li>
+                            <% end %>
                             <li>
                                 <%= button_to "Sign_out", destroy_user_session_path, method: :delete, class:"block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"  %>
                             </li>

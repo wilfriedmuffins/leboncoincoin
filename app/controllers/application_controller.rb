@@ -9,7 +9,10 @@ class ApplicationController < ActionController::Base
         @ads = @query.result(distinct: true).where("sold = ?", false)
     end
 
+    
+
     protected
+
     
     # If you have extra params to permit, append them to the sanitizer.
     def configure_sign_up_params

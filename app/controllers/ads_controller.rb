@@ -1,6 +1,8 @@
 class AdsController < ApplicationController
   before_action :set_ad, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, only: %i[ create ]
+  before_action :authenticate_admin, only: %i[ index, edit, update, destroy ]
+  before_action :owner, only: %i[ edit destroy ]
 
   # GET /ads or /ads.json
   def index
@@ -52,6 +54,7 @@ class AdsController < ApplicationController
 
   # PATCH/PUT /ads/1 or /ads/1.json
   def update
+
     respond_to do |format|
       if @ad.update(ad_params)
         format.html { redirect_to ad_url(@ad), notice: "Ad was successfully updated." }
@@ -65,6 +68,7 @@ class AdsController < ApplicationController
 
   # DELETE /ads/1 or /ads/1.json
   def destroy
+
     @ad.destroy
 
     respond_to do |format|
@@ -82,5 +86,13 @@ class AdsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def ad_params
       params.require(:ad).permit(:title, :category, :state, :description, :price, :city, :shipment, images: [])
+    end
+
+    def authenticate_admin
+      redirect_to root_path, notice: "Access retricted." if current_user.admin #|| current_user.id == @ad.user_id
+    end
+
+    def owner
+      redirect_to root_path, notice: "Access retricted." if current_user.id != @ad.user_id
     end
 end
