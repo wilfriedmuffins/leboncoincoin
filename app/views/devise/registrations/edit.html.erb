@@ -3,31 +3,31 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="mb-6"">
-    <%= f.label :nom, class:"block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" %><br />
+  <div class="mb-6">
+    <%= f.label :name, class:"block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" %><br />
     <%= f.text_field :name, autocomplete: "name", class:"shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" %>
   </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="mb-6">
+    <%= f.label :email, class:"block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" %>
   </div>
 
-  <div class="field">
-    <%= f.label :sex %><br />
-    <%= f.text_field :sex %>
+  <div class="mb-6">
+    <%= f.label :sex, class:"block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" %><br />
+    <%= f.text_field :sex, class:"shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :avatar %><br />
-    <%= f.file_field :avatar, autocomplete: "Image" %>
+  <div class="mb-6">
+    <%= f.label :avatar, class:"block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" %><br />
+    <%= f.file_field :avatar, autocomplete: "Image", class:"block mb-5 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" %>
   </div>
 
-  <div class="field">
+  <div class="mb-6">
     <% if @user.avatar.attached? %>
       <%= image_tag(@user.avatar) %> 
     <% else %>
@@ -35,42 +35,42 @@
     <% end %>
   </div>
   
-  <div class="field">
-    <%= f.label :role %><br />
-    <%= f.text_field :role %>
+  <div class="mb-6">
+    <%= f.label :role, class:"block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"  %><br />
+    <%= f.text_field :role, class:"shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" %>
   </div>
 
-  <div class="field">
-    <%= f.label :ville %><br />
-    <%= f.text_field :city %>
+  <div class="mb-6">
+    <%= f.label :ville, class:"block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"  %><br />
+    <%= f.text_field :city, class:"shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" %>
   </div>
 
-  <div class="field">
+  <div class="mb-6">
     <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password, autocomplete: "new-password", class:"shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" %>
     <% if @minimum_password_length %>
       <br />
       <em><%= @minimum_password_length %> characters minimum</em>
     <% end %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  <div class="mb-6">
+    <%= f.label :password_confirmation, class:"block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"  %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" %>
   </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
+  <div class="mb-6">
+    <%= f.label :current_password, class:"block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"  %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.password_field :current_password, autocomplete: "current-password", class:"shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
+  <div class="mb-6">
+    <%= f.submit "Update", class: "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" %>
   </div>
 <% end %>
 
 <h3>Cancel my account</h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" %></p>
 
 <%= link_to "Back", :back %>
