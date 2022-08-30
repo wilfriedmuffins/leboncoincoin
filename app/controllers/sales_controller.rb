@@ -25,10 +25,12 @@ class SalesController < ApplicationController
   def create
     @sale = Sale.new(sale_params)
     @sale.user = current_user
-    @email = @ad.user_id
+    @email = params[:email]
     puts @email.inspect
+
     respond_to do |format|
       if @sale.save
+        AdMailer.sold(@email).deliver_now
         format.html { redirect_to sale_url(@sale), notice: "Sale was successfully created." }
         format.json { render :show, status: :created, location: @sale }
       else
