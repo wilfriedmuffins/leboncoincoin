@@ -1,5 +1,6 @@
 class SalesController < ApplicationController
   before_action :set_sale, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, only: %i[ create ]
 
   # GET /sales or /sales.json
   def index

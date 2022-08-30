@@ -82,7 +82,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_29_160241) do
     t.string "name"
     t.string "sex"
     t.string "avatar"
-    t.boolean "admin"
+    t.boolean "admin", default: false
     t.string "city"
     t.string "role"
     t.index ["email"], name: "index_users_on_email", unique: true

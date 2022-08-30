@@ -1,5 +1,6 @@
 class AdsController < ApplicationController
   before_action :set_ad, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, only: %i[ create ]
 
   # GET /ads or /ads.json
   def index

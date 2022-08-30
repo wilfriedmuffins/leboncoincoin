@@ -17,7 +17,11 @@
             <div class="flex items-center md:order-2">
                     <button type="button" class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
                         <span class="sr-only">Open user menu</span>
-                        <%= image_tag(current_user.avatar, class:"w-8 h-8 rounded-full")%>
+                        <% if current_user.avatar.attached? %>
+                            <%= image_tag(current_user.avatar, class:"w-8 h-8 rounded-full")%>
+                        <% else %>
+                            <img class="w-8 h-8 rounded-full" src="https://www.librerentier.com/wp-content/plugins/schema-and-structured-data-for-wp//admin_section/images/default_user.jpg" alt="">
+                        <% end %>
                     </button>
                     <!-- Dropdown menu -->
                     <div class="z-50 my-4 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600 block hidden" id="user-dropdown" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(661px, 82px, 0px);" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom">
