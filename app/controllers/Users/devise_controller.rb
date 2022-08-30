@@ -15,4 +15,11 @@ class Users::DeviseController < ApplicationController
 
     self.responder = Responder
     respond_to :html, :turbo_stream
+
+
+    
+    def show
+        @user.ads
+        
+    end
 end

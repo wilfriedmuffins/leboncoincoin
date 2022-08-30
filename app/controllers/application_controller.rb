@@ -9,8 +9,6 @@ class ApplicationController < ActionController::Base
         @ads = @query.result(distinct: true).where("sold = ?", false)
     end
 
-    
-
     protected
 
     

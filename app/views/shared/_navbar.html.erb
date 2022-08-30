@@ -52,9 +52,13 @@
                     </button>
                 </div>
         <% else %>
-            <div class="flex items-center">
-                <%= link_to "s'inscrire", new_user_registration_path, class:"self-center text-xl font-semibold whitespace-nowrap dark:text-white"  %> 
-                <%= link_to "se connecter", new_user_session_path, class:"self-center text-xl font-semibold whitespace-nowrap dark:text-white"  %> 
+            <div class="flex flex-row items-center">
+                <div class="mx-2">
+                    <%= link_to "S'inscrire", new_user_registration_path, class:"self-center text-xl font-semibold whitespace-nowrap dark:text-white" %> 
+                </div>
+                <div class="mx-2">
+                    <%= link_to "Se connecter", new_user_session_path, class:"self-center text-xl font-semibold whitespace-nowrap dark:text-white" %> 
+                </div>
             </div>
         <% end %>
     </div>

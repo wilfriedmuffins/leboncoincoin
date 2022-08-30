@@ -1,4 +1,78 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+
+<h1 class="text-2xl font-extrabold dark:text-white my-3">Ads <%= @user.ads.count %></h1>
+
+<div id="ads" class="min-w-full my-3">
+    <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="py-3 px-6">
+                    Title
+                </th>
+                <th scope="col" class="py-3 px-6">
+                    Catégory
+                </th>
+                <th scope="col" class="py-3 px-6">
+                    Price
+                </th>
+                <th scope="col" class="py-3 px-6">
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+          <% @user.ads.each do |ad| %>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <%= ad.title %>
+                </th>
+                <td class="py-4 px-6">
+                  <%= ad.category %>
+                </td>
+                <td class="py-4 px-6">
+                    <%= ad.price %>
+                </td>
+                <td>
+                  <%= link_to 'Show', ad_path(ad.id), class:"focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-4 py-2.5 ml-10 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" %> 
+                </td>
+            </tr>
+          <% end %>
+        </tbody>
+    </table>
+</div>
+
+<h1 class="text-2xl font-extrabold dark:text-white my-3">Sales <%= @user.sale.count %></h1>
+
+<div id="ads" class="min-w-full my-3">
+    <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="py-3 px-6">
+                    Title of ad
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+          <% @user.sale.each do |sale| %>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <%= sale.ad.title%>
+                </th>
+                <td class="py-4 px-6">
+                  <%= sale.user.name %>
+                </td>
+                <td>
+                  <%= link_to 'Show', sale_path(sale.id), class:"focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-4 py-2.5 ml-10 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" %> 
+                </td>
+            </tr>
+          <% end %>
+        </tbody>
+    </table>
+</div>
+
+
+
+<h1 class="text-2xl font-extrabold dark:text-white my-3">Edit <%= resource_name.to_s.humanize %></h1>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
