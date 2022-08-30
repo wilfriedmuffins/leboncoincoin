@@ -81,3 +81,4 @@ gem 'devise'
 gem "ransack", "~> 3.2"
 
 gem "faker", "~> 2.22"
+gem 'aws-sdk-s3', require: false
