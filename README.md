@@ -11,8 +11,9 @@ Now I created a css design for each application pages and I thought about the sc
 MVP
 
 - Users authentication
-- search + Ad + add
-- 
+- search Ad 
+- Add ads
+- add sales
 
 To make the app better
 
@@ -27,9 +28,10 @@ To make the app better
 
 - Ruby ⇒ "3.0.2"
 - Rails ⇒ >= 7.0.3.1"
-- Tailwind ⇒
-- carrierwave ⇒
-- city-state ⇒
+- Tailwind ⇒ "~> 2.0"
+- faker
+- ransak
+- aws-sdk-s3
 
 # Why this clone
 
