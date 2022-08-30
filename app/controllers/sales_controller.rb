@@ -25,7 +25,7 @@ class SalesController < ApplicationController
   def create
     @sale = Sale.new(sale_params)
     @sale.user = current_user
-    @email = @ad.user.emails
+    @email = @ad.user.email
     puts @email.inspect
 
     
