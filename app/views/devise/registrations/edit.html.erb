@@ -16,6 +16,7 @@
                     Price
                 </th>
                 <th scope="col" class="py-3 px-6">
+                    State
                 </th>
             </tr>
         </thead>
@@ -31,38 +32,14 @@
                 <td class="py-4 px-6">
                     <%= ad.price %>
                 </td>
-                <td>
-                  <%= link_to 'Show', ad_path(ad.id), class:"focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-4 py-2.5 ml-10 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" %> 
-                </td>
-            </tr>
-          <% end %>
-        </tbody>
-    </table>
-</div>
-
-<h1 class="text-2xl font-extrabold dark:text-white my-3">Sales <%= @user.sale.count %></h1>
-
-<div id="ads" class="min-w-full my-3">
-    <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
-    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-            <tr>
-                <th scope="col" class="py-3 px-6">
-                    Title of ad
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-          <% @user.sale.each do |sale| %>
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                  <%= sale.ad.title%>
-                </th>
                 <td class="py-4 px-6">
-                  <%= sale.user.name %>
+                    <%= state_of_sale(ad.sold) %>
                 </td>
                 <td>
-                  <%= link_to 'Show', sale_path(sale.id), class:"focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-4 py-2.5 ml-10 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" %> 
+                  <%= link_to 'Show ad', ad_path(ad.id), class:"focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-4 py-2.5 ml-10 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" %> 
+                </td>
+                <td>
+                  <%= link_to 'Show sale', sale_path(ad.sale.id), class:"focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-4 py-2.5 ml-10 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" if ad.sale.present? %> 
                 </td>
             </tr>
           <% end %>
@@ -79,7 +56,7 @@
 
   <div class="mb-6">
     <%= f.label :name, class:"block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" %><br />
-    <%= f.text_field :name, autocomplete: "name", class:"shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" %>
+    <%= f.text_field :name, autocomplete: true,autocomplete: "email", class:"shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" %>
   </div>
 
   <div class="mb-6">
@@ -107,11 +84,6 @@
     <% else %>
       <%= image_tag("default_avatar.jpg") %>
     <% end %>
-  </div>
-  
-  <div class="mb-6">
-    <%= f.label :role, class:"block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"  %><br />
-    <%= f.text_field :role, class:"shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" %>
   </div>
 
   <div class="mb-6">

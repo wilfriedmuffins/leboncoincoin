@@ -1,8 +1,8 @@
 class AdsController < ApplicationController
   before_action :set_ad, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, only: %i[ create ]
-  before_action :authenticate_admin, only: %i[ index, edit, update, destroy ]
-  before_action :owner, only: %i[ edit destroy ]
+  #before_action :authenticate_admin, only: %i[ index, edit, update, destroy]
+  #before_action :owner, only: %i[ edit destroy ]
 
   # GET /ads or /ads.json
   def index
@@ -68,7 +68,6 @@ class AdsController < ApplicationController
 
   # DELETE /ads/1 or /ads/1.json
   def destroy
-
     @ad.destroy
 
     respond_to do |format|
