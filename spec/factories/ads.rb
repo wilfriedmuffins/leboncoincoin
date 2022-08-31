@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :ad do
     title  { Faker::Lorem.sentence }
-    user_id { 14 }
+    user_id { 10 }
     description {Faker::Lorem.paragraph(sentence_count: 20)}
     price { Faker::Number.number(digits: 3) }
     city {"Paris"}
