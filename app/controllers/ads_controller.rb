@@ -37,9 +37,9 @@ class AdsController < ApplicationController
   def create
     @ad = Ad.new(ad_params)
     @ad.user = current_user
-    @sale = Sale.new
-    @sale.user = current_user
-    @sale.ad = @ad
+    # @sale = Sale.new
+    # @sale.user = current_user
+    # @sale.ad = @ad
 
     respond_to do |format|
       if @ad.save

@@ -4,7 +4,7 @@ class Ad < ApplicationRecord
 
     belongs_to :user
 
-    #belongs_to :sale#, dependent: :destroy
+    has_one :sale, dependent: :destroy
 
     validates :title, presence: true
     validates :category, presence: true
