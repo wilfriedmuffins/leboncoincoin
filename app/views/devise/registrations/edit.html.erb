@@ -18,6 +18,8 @@
                 <th scope="col" class="py-3 px-6">
                     State
                 </th>
+                <th scope="col" class="py-3 px-6">
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -39,7 +41,7 @@
                   <%= link_to 'Show ad', ad_path(ad.id), class:"focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-4 py-2.5 ml-10 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" %> 
                 </td>
                 <td>
-                  <%= link_to 'Show sale', sale_path(ad.sale.id), class:"focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-4 py-2.5 ml-10 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" if ad.sale.present? %> 
+                  <%= link_to 'Show sale', sale_path(ad.sale.id), class:"focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-4 py-2.5 ml-10 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" if ad.sold %> 
                 </td>
             </tr>
           <% end %>
