@@ -1,3 +1,2 @@
 module SalesHelper
-   
 end
