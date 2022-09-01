@@ -1,17 +1,16 @@
 <div id="<%= dom_id sale %>">
   <p class="my-5">
     <strong class="block font-medium mb-1">Ad:</strong>
-    <%= sale.ad_id %>
+      <%= sale.ad.title %>
   </p>
 
   <p class="my-5">
     <strong class="block font-medium mb-1">User:</strong>
-    <%= sale.user_id %>
+    <%= sale.user.name %>
   </p>
 
   <% if action_name != "show" %>
     <%= link_to "Show this sale", sale, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this sale', edit_sale_path(sale), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
     <%= link_to "Show ad", ad_path(sale.ad_id), class: "focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" %>
     <hr class="mt-6">
   <% end %>

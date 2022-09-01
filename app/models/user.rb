@@ -10,6 +10,10 @@ class User < ApplicationRecord
 
   has_many :sale, dependent: :destroy
 
+  validates :name, presence: true
+  validates :email, presence: true
+
+
   def avatar_size
     avatar.variant(resiez: "150x150!").processed
   end

@@ -3,8 +3,8 @@ class Sale < ApplicationRecord
   after_destroy :reset_sale
 
   belongs_to :ad
-  belongs_to :user
 
+  belongs_to :user
 
   def add_sale
     @ad = Ad.find(ad_id)

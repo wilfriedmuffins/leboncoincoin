@@ -9,12 +9,17 @@
         <%= button_to 'Destroy this ad', ad_path(@ad), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
       </div>  
     <% end %>
-    
 
-  <div class="inline-block m-2">
-    <%= render "sales/form", sale: @sale, email: @ad.user.email %>
-  </div>
+    <% if current_user!=@ad.user && (@ad.sold == false )%>
 
-    <%= link_to 'Back to ads', ads_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+      <div class="inline-block m-2">
+        <%= render "sales/form", sale: @sale, email: @ad.user.email %>
+      </div>
+
+    <% end %>
+
+    <div class="inline-block m-2">
+      <%= link_to 'Back to ads', ads_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    </div>
   </div>
 </div>

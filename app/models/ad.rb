@@ -1,8 +1,10 @@
 class Ad < ApplicationRecord
 
     has_many_attached :images
-    
+
     belongs_to :user
+
+    has_one :sale, dependent: :destroy
 
     validates :title, presence: true
     validates :category, presence: true

@@ -1,7 +1,7 @@
 class SalesController < ApplicationController
   before_action :set_sale, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, only: %i[ create ]
-  before_action :authenticate_admin, only: %i[ index, edit, destroy ]
+  before_action :authenticate_admin, only: %i[ index ]
 
   # GET /sales or /sales.json
   def index
@@ -26,7 +26,8 @@ class SalesController < ApplicationController
     @sale = Sale.new(sale_params)
     @sale.user = current_user
     @email = params[:email]
-    
+    puts @email.inspect
+
     respond_to do |format|
       if @sale.save
         AdMailer.sold(@email).deliver_now
@@ -57,7 +58,7 @@ class SalesController < ApplicationController
     @sale.destroy
 
     respond_to do |format|
-      format.html { redirect_to sales_url, notice: "Sale was successfully destroyed." }
+      format.html { redirect_to root_path, notice: "Sale was successfully destroyed." }
       format.json { head :no_content }
     end
   end
