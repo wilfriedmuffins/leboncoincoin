@@ -16,11 +16,12 @@ MVP
 - search Ad 
 - Add ads
 - add sales
+- Email notification ( email ) between users
 
 To make the app better
 
 - Multiple categories for ad
-- Message between users + notification (mobile / email )
+- Email notification ( sms) between users
 - Add favorites
 - Search filter
 - Stripe online payments
@@ -30,10 +31,6 @@ To make the app better
 
 - Ruby ⇒ "3.0.2"
 - Rails ⇒ >= 7.0.3.1"
-- Tailwind ⇒ "~> 2.0"
-- faker
-- ransak
-- aws-sdk-s3
 
 # Why this clone
 
