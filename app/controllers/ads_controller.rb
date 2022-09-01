@@ -1,7 +1,7 @@
 class AdsController < ApplicationController
   before_action :set_ad, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, only: %i[ create ]
-  #before_action :authenticate_admin, only: %i[ index, edit, update, destroy]
+  #before_action :authenticate_admin, only: %i[ index]
   #before_action :owner, only: %i[ edit destroy ]
 
   # GET /ads or /ads.json
@@ -87,11 +87,7 @@ class AdsController < ApplicationController
       params.require(:ad).permit(:title, :category, :state, :description, :price, :city, :shipment, images: [])
     end
 
-    def authenticate_admin
-      redirect_to root_path, notice: "Access retricted." if current_user.admin #|| current_user.id == @ad.user_id
-    end
-
-    def owner
-      redirect_to root_path, notice: "Access retricted." if current_user.id != @ad.user_id
-    end
+    # def owner
+    #   redirect_to root_path, notice: "Access retricted." if current_user.id != @ad.user_id
+    # end
 end
