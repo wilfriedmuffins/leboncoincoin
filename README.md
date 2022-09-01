@@ -4,7 +4,7 @@ This is a clone of LeBonCoin.  First of all I planned to list all tasks I will d
 
 Now I created a css design for each application pages and I thought about the schema of database 
 
-[Clone le boncoin](https://grandiose-cormorant-7de.notion.site/Clone-le-boncoin-20d90e1d59ad4d678f53736765474998)
+[Clone le boncoin]([https://grandiose-cormorant-7de.notion.site/Clone-le-boncoin-20d90e1d59ad4d678f53736765474998])
 
 https://leboncoincoincoin.herokuapp.com/
 
