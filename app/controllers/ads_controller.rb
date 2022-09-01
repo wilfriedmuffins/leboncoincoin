@@ -71,7 +71,7 @@ class AdsController < ApplicationController
     @ad.destroy
 
     respond_to do |format|
-      format.html { redirect_to ads_url, notice: "Ad was successfully destroyed." }
+      format.html { redirect_to root_path, notice: "Ad was successfully destroyed." }
       format.json { head :no_content }
     end
   end
