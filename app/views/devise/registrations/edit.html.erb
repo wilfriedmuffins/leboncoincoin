@@ -109,7 +109,7 @@
 
   <div class="mb-6">
     <% if @user.avatar.attached? %>
-      <%= image_tag(@user.avatar) %> 
+      <%= image_tag(@user.avatar, class:"max-w-xs ") %> 
     <% else %>
       <%= image_tag("default_avatar.jpg") %>
     <% end %>
