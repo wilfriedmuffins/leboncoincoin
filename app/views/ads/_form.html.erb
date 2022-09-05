@@ -12,12 +12,12 @@
   <% end %>
 
   <div class="mb-6">
-    <%= form.label :titre, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" %>
+    <%= form.label :title, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" %>
     <%= form.text_field :title, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
   </div>
 
   <div class="mb-6">
-    <%= form.label :categorie %>
+    <%= form.label :category %>
     <%= form.text_field :category, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
   </div>
 
@@ -27,7 +27,7 @@
   </div>
 
   <div class="mb-6">
-    <%= form.label :etat %>
+    <%= form.label :stat %>
     <%= form.select :state, ["New", "Second hand"], {}, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
   </div>
 
@@ -37,17 +37,17 @@
   </div>
 
   <div class="mb-6">
-    <%= form.label :prix %>
+    <%= form.label :price %>
     <%= form.number_field :price, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
   </div>
 
   <div class="mb-6">
-    <%= form.label :ville %>
+    <%= form.label :city %>
     <%= form.text_field :city, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
   </div>
 
   <div class="mb-6">
-    <%= form.label :livraison %>
+    <%= form.label :shipment %>
     <%= form.select :shipment, ["Delivery", "Hand"], {}, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
   </div>
 
